@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import HeroSection from "@/components/home/hero-section";
 import ProductCategorySection from "@/components/home/product-category-section";
 import WhyHealthyBariSection from "@/components/home/why-healthy-bari-section";
-import AboutPreviewSection from "@/components/home/about-preview-section";
 import ContactCtaSection from "@/components/home/contact-cta-section";
+import BrandShowcaseSection from "@/components/home/brand-showcase-section";
+import NewArrivalsSection from "@/components/home/new-arrivals-section";
+import TopSellingSection from "@/components/home/top-selling-section";
+import ReviewsSection from "@/components/shared/reviews-section";
 
 export const metadata: Metadata = {
   title: "Healthy Bari | Pure Food, Healthy Life",
@@ -13,10 +15,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <BrandShowcaseSection />
+      <NewArrivalsSection />
+      <TopSellingSection />
+      <ReviewsSection />
       <ProductCategorySection />
       <WhyHealthyBariSection />
-      <AboutPreviewSection />
       <ContactCtaSection />
     </>
   );

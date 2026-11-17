@@ -60,7 +60,8 @@ html {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #2c7bde;
+  --primary: #c76419;
+  /* --primary: #2c7bde; */
   --primaryGry: #EAF2FC80;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: #333333CC;
@@ -187,6 +188,28 @@ html {
   animation: slideUp 0.3s ease-out;
 }
 
+@keyframes reviewSlideEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-slide-enter {
+  animation: reviewSlideEnter 350ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-slide-enter {
+    animation: none;
+    transition: none;
+  }
+}
+
 /* Responsive utilities */
 @media (max-width: 640px) {
   .responsive-text {
@@ -225,6 +248,127 @@ html {
   gap: 0.25rem;
 }
 
+.home-hero-swiper {
+  --swiper-navigation-sides-offset: 1rem;
+  --swiper-pagination-bottom: 1rem;
+}
+
+.home-hero-swiper .swiper-button-prev,
+.home-hero-swiper .swiper-button-next {
+  --swiper-navigation-size: 2.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgb(75 82 72 / 38%);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 88%);
+  color: #3d433a;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 12%);
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.home-hero-swiper .swiper-button-prev:hover,
+.home-hero-swiper .swiper-button-next:hover {
+  border-color: #000;
+  background: #000;
+}
+
+.home-hero-swiper .swiper-button-prev::after,
+.home-hero-swiper .swiper-button-next::after {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.home-hero-swiper .swiper-button-prev {
+  left: 1rem;
+  right: auto;
+}
+
+.home-hero-swiper .swiper-button-next {
+  right: 1rem;
+  left: auto;
+}
+
+.home-hero-swiper .swiper-pagination-bullet {
+  width: 0.55rem;
+  height: 0.55rem;
+  background: #52604d;
+  opacity: 0.7;
+}
+
+.home-hero-swiper .swiper-pagination-bullet-active {
+  width: 1.5rem;
+  border-radius: 9999px;
+  background: #f4c84d;
+  opacity: 1;
+}
+
+.new-arrivals-swiper .swiper-button-prev,
+.new-arrivals-swiper .swiper-button-next {
+  --swiper-navigation-size: 2.1rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 94%);
+  color: #3f463c;
+  box-shadow: 0 2px 10px rgb(15 23 42 / 12%);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.new-arrivals-swiper .swiper-button-prev:hover,
+.new-arrivals-swiper .swiper-button-next:hover {
+  border-color: #111;
+  background: #111;
+  color: white;
+}
+
+.new-arrivals-swiper .swiper-button-prev::after,
+.new-arrivals-swiper .swiper-button-next::after {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.new-arrivals-swiper .swiper-button-prev {
+  left: 0.5rem;
+}
+
+.new-arrivals-swiper .swiper-button-next {
+  right: 0.5rem;
+}
+
+.new-arrivals-swiper .swiper-pagination-bullet {
+  background: #879084;
+  opacity: 0.55;
+}
+
+.new-arrivals-swiper .swiper-pagination-bullet-active {
+  width: 1.35rem;
+  border-radius: 9999px;
+  background: #e4a51c;
+  opacity: 1;
+}
+
+@media (max-width: 639px) {
+  .home-hero-swiper {
+    --swiper-navigation-sides-offset: 0.625rem;
+  }
+
+  .home-hero-swiper .swiper-button-prev,
+  .home-hero-swiper .swiper-button-next {
+    --swiper-navigation-size: 1.9rem;
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .new-arrivals-swiper .swiper-button-prev,
+  .new-arrivals-swiper .swiper-button-next {
+    --swiper-navigation-size: 1.85rem;
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
+}
+
 @media (max-height: 700px) {
   .auth-brand-logo svg {
     width: 2.5rem;
@@ -259,4 +403,5 @@ html {
   .auth-form-fields input:not([type="checkbox"]) {
     height: 2.5rem;
   }
+
 }
