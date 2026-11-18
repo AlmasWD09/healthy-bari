@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { ShoppingCart } from "lucide-react";
+import { useSyncExternalStore } from "react";
+import AddToCartButton from "@/components/cart/add-to-cart-button";
 import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -17,6 +17,7 @@ const products = [
     image: "/home/showcase-honey-jars.jpg",
     alt: "Two jars of natural honey with a wooden honey dipper",
     href: "/shop#honey",
+    price: 700,
   },
   {
     name: "Black Cumin Flower Honey",
@@ -24,6 +25,7 @@ const products = [
     image: "/home/showcase-honey-nature.jpg",
     alt: "Golden honey jars arranged outdoors",
     href: "/shop#honey",
+    price: 650,
   },
   {
     name: "Mustard Flower Honey",
@@ -31,6 +33,7 @@ const products = [
     image: "/home/showcase-honey-flower.jpg",
     alt: "Golden honey beside a mustard flower",
     href: "/shop#honey",
+    price: 700,
   },
   {
     name: "Sundarbans Honey",
@@ -38,6 +41,7 @@ const products = [
     image: "/home/honey-sundarbans.jpg",
     alt: "A river flowing through the Sundarbans forest",
     href: "/shop#honey",
+    price: 700,
   },
   {
     name: "Honey Nuts",
@@ -45,15 +49,12 @@ const products = [
     image: "/home/honey-nuts.jpg",
     alt: "Honey nuts and honeycomb arranged together",
     href: "/shop#nuts",
+    price: 650,
   },
 ];
 
 export default function NewArrivalsSection() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useSyncExternalStore(() => () => {}, () => true, () => false);
 
   return (
     <section className="bg-[#f3f3f1] px-4 py-9 sm:px-6 sm:py-12 lg:px-8" aria-label="New honey and pantry products">
@@ -100,12 +101,7 @@ export default function NewArrivalsSection() {
                     <div className="flex flex-1 flex-col items-center px-3 pb-4 pt-3 text-center sm:px-4 sm:pb-5 sm:pt-4">
                       <h3 className="line-clamp-2 min-h-10 text-xs font-medium leading-5 text-slate-800 sm:text-sm">{product.name}</h3>
                       <p className="mt-1 line-clamp-1 text-[11px] text-slate-500 sm:text-xs">{product.detail}</p>
-                      <Link
-                        href={product.href}
-                        className="mt-auto inline-flex h-10 w-full items-center justify-center gap-2 rounded-full border border-amber-500 bg-white px-3 text-xs font-semibold text-amber-700 transition-colors hover:bg-amber-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 sm:mt-4 sm:text-sm"
-                      >
-                        <ShoppingCart className="size-3.5" /> Add To Cart
-                      </Link>
+                      <AddToCartButton product={{ name: product.name, price: product.price }} className="mt-auto inline-flex h-10 w-full items-center justify-center gap-2 rounded-full border border-amber-500 bg-white px-3 text-xs font-semibold text-amber-700 transition-colors hover:bg-amber-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 sm:mt-4 sm:text-sm" />
                     </div>
                   </article>
                 </SwiperSlide>

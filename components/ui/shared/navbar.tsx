@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, UserPlus, UserRound, X } from "lucide-react";
+import { Menu, ShoppingBag, UserPlus, UserRound, X } from "lucide-react";
 import BrandLogo from "@/components/ui/shared/brand-logo";
+import { useCart } from "@/components/cart/cart-provider";
 
 const links = [
   { label: "Home", href: "/" },
@@ -16,6 +17,8 @@ const links = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { orders } = useCart();
+  const orderCount = orders.reduce((total, order) => total + order.quantity, 0);
 
   const closeMenu = () => setMenuOpen(false);
   const isActive = (href: string) =>
@@ -49,6 +52,10 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <Link href="/cart" aria-label={`Your orders${orderCount ? `, ${orderCount} items` : ""}`} aria-current={isActive("/cart") ? "page" : undefined} className={`relative inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm font-semibold transition-colors hover:bg-slate-100 ${isActive("/cart") ? "text-primary" : "text-slate-700"}`}>
+            <ShoppingBag className="size-4" /> Orders
+            {orderCount > 0 && <span className="inline-flex min-w-5 items-center justify-center rounded-full bg-[#155b32] px-1.5 py-0.5 text-[11px] font-bold text-white">{orderCount}</span>}
+          </Link>
           <Link
             href="/login"
             aria-current={isActive("/login") ? "page" : undefined}
@@ -96,6 +103,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <Link href="/cart" onClick={closeMenu} aria-current={isActive("/cart") ? "page" : undefined} className={`flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors ${isActive("/cart") ? "bg-primary/10 text-primary" : "text-slate-700 hover:bg-slate-50 hover:text-primary"}`}><span className="inline-flex items-center gap-2"><ShoppingBag className="size-4" /> Orders</span>{orderCount > 0 && <span className="rounded-full bg-[#155b32] px-2 py-0.5 text-xs font-bold text-white">{orderCount}</span>}</Link>
             <div className="mt-3 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4">
               <Link
                 href="/login"

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingCart } from "lucide-react";
+import AddToCartButton from "@/components/cart/add-to-cart-button";
 
 const products = [
   {
@@ -64,9 +64,7 @@ export default function TopSellingSection() {
                   {"oldPrice" in product && <span className="font-normal text-slate-400 line-through">{product.oldPrice}</span>}
                   {product.price}
                 </p>
-                <Link href="/shop" className="mt-3 inline-flex h-9 w-full items-center justify-center gap-1 rounded-full border border-amber-500 px-2 text-[11px] font-semibold text-amber-700 transition-colors hover:bg-amber-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 sm:mt-4 sm:h-10 sm:gap-2 sm:text-sm">
-                  <ShoppingCart className="size-3.5 shrink-0" /> Add To Cart
-                </Link>
+                <AddToCartButton product={{ name: product.name, price: Number(product.price.replace(/[^0-9]/g, "")) }} className="mt-3 inline-flex h-9 w-full items-center justify-center gap-1 rounded-full border border-amber-500 px-2 text-[11px] font-semibold text-amber-700 transition-colors hover:bg-amber-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 sm:mt-4 sm:h-10 sm:gap-2 sm:text-sm" />
               </div>
             </article>
           ))}
