@@ -203,6 +203,37 @@ html {
   animation: reviewSlideEnter 350ms ease-out both;
 }
 
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.scroll-reveal-ready:not([data-revealed="true"]) {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+.scroll-reveal-ready[data-revealed="true"] {
+  animation: sectionReveal 650ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-ready,
+  .scroll-reveal-ready:not([data-revealed="true"]),
+  .scroll-reveal-ready[data-revealed="true"] {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .review-slide-enter {
     animation: none;

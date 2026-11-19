@@ -32,7 +32,7 @@ export default function WhyHealthyBariSection() {
 
         <div className="mt-9 grid gap-4 md:grid-cols-3 lg:mt-12">
           {reasons.map(({ title, description, icon: Icon }, index) => (
-            <article key={title} className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-7">
+            <article key={title} className="rounded-3xl border border-slate-200 bg-white p-6 transition duration-300 ease-out hover:-translate-y-1 hover:border-emerald-200 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none sm:p-7">
               <div className="flex items-center justify-between">
                 <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700">
                   <Icon className="size-6" strokeWidth={1.8} />

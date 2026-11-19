@@ -28,7 +28,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
       <nav
         aria-label="Main navigation"
-        className=" flex h-20 min-h-20 shrink-0 items-center justify-between gap-4 container mx-auto px-4 sm:px-6 lg:px-8"
+        className=" flex h-20 min-h-20 shrink-0 items-center justify-between gap-4 container mx-auto px-4 xl:px-0"
       >
         <Link href="/" aria-label="Healthy Bari home" onClick={closeMenu}>
           <BrandLogo showTagline={false} />
@@ -40,7 +40,7 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               aria-current={isActive(link.href) ? "page" : undefined}
-              className={`relative px-1 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-primary ${
+              className={`relative px-1 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-200 motion-reduce:after:transition-none ${
                 isActive(link.href)
                   ? "text-primary after:scale-x-100"
                   : "text-slate-700 after:scale-x-0 hover:text-primary"

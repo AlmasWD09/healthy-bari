@@ -34,6 +34,61 @@ const products = [
     image: "/top-selling/honey-product-05.jpg",
     alt: "Honey product display",
   },
+  {
+    name: "Premium Mixed Nuts 500g",
+    price: "850\u09F3",
+    image: "/top-selling/mixed-nuts-01.jpg",
+    alt: "A bowl of premium almonds, cashews and pistachios",
+  },
+  {
+    name: "Roasted Almonds 250g",
+    price: "550\u09F3",
+    image: "/top-selling/almonds-01.jpg",
+    alt: "A bowl of roasted almonds",
+  },
+  {
+    name: "Premium Cashew Nuts 250g",
+    price: "620\u09F3",
+    image: "/top-selling/cashews-01.jpg",
+    alt: "Cashew nuts served with cashew milk",
+  },
+  {
+    name: "Pistachio Nuts 250g",
+    price: "750\u09F3",
+    image: "/top-selling/mixed-nuts-02.jpg",
+    alt: "A bowl of assorted mixed nuts",
+  },
+  {
+    name: "Honey Roasted Nuts 300g",
+    price: "680\u09F3",
+    image: "/top-selling/mixed-nuts-03.jpg",
+    alt: "A bowl of assorted nuts",
+  },
+  {
+    name: "Ajwa Dates 500g",
+    price: "900\u09F3",
+    image: "/top-selling/dates-01.jpg",
+    alt: "Dark dates and walnuts in a bowl",
+  },
+  {
+    name: "Medjool Dates 500g",
+    price: "1,100\u09F3",
+    image: "/top-selling/dates-02.jpg",
+    alt: "Close-up of whole dates",
+  },
+  {
+    name: "Premium Safawi Dates 500g",
+    price: "850\u09F3",
+    image: "/top-selling/dates-03.jpg",
+    alt: "A selection of dried dates",
+  },
+  {
+    name: "Black Seed 250g",
+    price: "350\u09F3",
+    image: "/top-selling/black-seed-01.jpg",
+    alt: "Black cumin seeds in a spoon",
+  },
+
 ];
 
 export default function TopSellingSection() {
@@ -48,14 +103,14 @@ export default function TopSellingSection() {
 
         <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5 lg:gap-[18px]">
           {products.map((product) => (
-            <article key={product.name} className="group flex min-w-0 flex-col bg-white">
+            <article key={product.name} className="group flex min-w-0 flex-col bg-white transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none">
               <Link href="/shop" className="relative block aspect-square overflow-hidden bg-white" aria-label={`View ${product.name}`}>
                 <Image
                   src={product.image}
                   alt={product.alt}
                   fill
                   sizes="(max-width: 640px) 60vw, (max-width: 900px) 30vw, 20vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.05] motion-reduce:transform-none motion-reduce:transition-none"
                 />
               </Link>
               <div className="flex flex-1 flex-col items-center px-2 pb-3 text-center sm:px-3 sm:pb-4">

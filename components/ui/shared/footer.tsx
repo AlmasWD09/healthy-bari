@@ -164,10 +164,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="/faq"
-                  className="hover:text-primary transition-colors"
-                >
+                <a href="/faq" className="hover:text-primary transition-colors">
                   FAQs
                 </a>
               </li>
@@ -182,7 +179,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin className="text-primary shrink-0 mt-1" size={18} />
-                <span>Dhaka, Bangladesh</span>
+                <span>Rampura, Dhaka, Bangladesh</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="text-primary shrink-0" size={18} />
@@ -190,7 +187,7 @@ const Footer = () => {
                   href="tel:+8801700000000"
                   className="transition-colors hover:text-primary"
                 >
-                  +880 1700-000000
+                  +8809642922922
                 </a>
               </li>
               <li className="flex items-center space-x-3">
@@ -199,7 +196,7 @@ const Footer = () => {
                   href="mailto:info@honeybari.com"
                   className="break-all transition-colors hover:text-primary"
                 >
-                  info@honeybari.com
+                  honeybari25@gmail.com
                 </a>
               </li>
             </ul>
@@ -229,9 +226,7 @@ const Footer = () => {
 
         {/* Bottom Bar / Copyright */}
         <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-          <p>
-            &copy; {year ?? ""} Healthy Bari. All Rights Reserved.
-          </p>
+          <p>&copy; {year ?? ""} Healthy Bari. All Rights Reserved.</p>
 
           {/* Payment Badges Placeholder */}
           <div className="flex items-center space-x-2 text-gray-400">

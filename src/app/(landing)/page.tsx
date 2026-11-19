@@ -6,6 +6,7 @@ import BrandShowcaseSection from "@/components/home/brand-showcase-section";
 import NewArrivalsSection from "@/components/home/new-arrivals-section";
 import TopSellingSection from "@/components/home/top-selling-section";
 import ReviewsSection from "@/components/shared/reviews-section";
+import ScrollReveal from "@/components/ui/shared/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Healthy Bari | Pure Food, Healthy Life",
@@ -15,13 +16,13 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <BrandShowcaseSection />
-      <NewArrivalsSection />
-      <TopSellingSection />
-      <ReviewsSection />
-      <ProductCategorySection />
-      <WhyHealthyBariSection />
-      <ContactCtaSection />
+      <ScrollReveal><BrandShowcaseSection /></ScrollReveal>
+      <ScrollReveal><NewArrivalsSection /></ScrollReveal>
+      <ScrollReveal><TopSellingSection /></ScrollReveal>
+      <ScrollReveal><ReviewsSection /></ScrollReveal>
+      <ScrollReveal><ProductCategorySection /></ScrollReveal>
+      <ScrollReveal><WhyHealthyBariSection /></ScrollReveal>
+      <ScrollReveal><ContactCtaSection /></ScrollReveal>
     </>
   );
 }

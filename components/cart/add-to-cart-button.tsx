@@ -155,7 +155,7 @@ export default function AddToCartButton({
             type="submit"
             className="h-12 w-full rounded-full bg-primary px-5 text-sm font-semibold text-white transition hover:bg-primary"
           >
-            Continue to confirmation
+            Order Now
           </button>
         </form>
       </DialogPopup>
