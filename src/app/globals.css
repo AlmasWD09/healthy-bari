@@ -188,6 +188,76 @@ html {
   animation: slideUp 0.3s ease-out;
 }
 
+@keyframes whatsappFloatIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes whatsappPulse {
+  0% {
+    opacity: 0.32;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@keyframes whatsappLabelPeek {
+  0%,
+  12%,
+  72%,
+  100% {
+    opacity: 0;
+    transform: translateX(0.5rem);
+  }
+  20%,
+  64% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.whatsapp-float {
+  animation: whatsappFloatIn 450ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.whatsapp-float__ring {
+  animation: whatsappPulse 2.2s ease-out 700ms infinite;
+}
+
+.whatsapp-float__label {
+  animation: whatsappLabelPeek 5s ease-in-out 1.2s infinite;
+}
+
+.whatsapp-float .group:hover .whatsapp-float__label,
+.whatsapp-float .group:focus-within .whatsapp-float__label {
+  animation-play-state: paused;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float,
+  .whatsapp-float__ring,
+  .whatsapp-float__label {
+    animation: none;
+  }
+
+  .whatsapp-float__label {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes reviewSlideEnter {
   from {
     opacity: 0;

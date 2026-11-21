@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
+import { A11y, Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const slides = [
@@ -41,12 +40,11 @@ export default function BrandShowcaseSection() {
       <div className="home-hero-swiper mx-auto max-w-7xl overflow-hidden border border-[#e8e5d9] bg-[#f3f1e9] shadow-[0_18px_55px_rgba(54,49,30,.12)]">
         {isMounted ? (
         <Swiper
-          modules={[A11y, Autoplay, Navigation, Pagination]}
+          modules={[A11y, Autoplay, Pagination]}
           slidesPerView={1}
           loop
-          navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
           speed={700}
           a11y={{ enabled: true }}
           className="h-[360px] sm:h-[440px] lg:h-[500px]"

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import React, { useEffect, useState } from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
@@ -228,13 +228,16 @@ const Footer = () => {
         <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
           <p>&copy; {year ?? ""} Healthy Bari. All Rights Reserved.</p>
 
-          {/* Payment Badges Placeholder */}
-          <div className="flex items-center space-x-2 text-gray-400">
-            <span>Cash on Delivery</span>
-            <span>•</span>
-            <span>bKash</span>
-            <span>•</span>
-            <span>Nagad</span>
+          <div className="flex items-center gap-3 sm:gap-4" aria-label="Accepted payment methods">
+            <span className="flex h-10 w-[76px] items-center justify-center rounded-md bg-white px-2 shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Visa_Inc._logo_%282021%E2%80%93present%29.svg" alt="Visa" className="h-6 w-full object-contain" />
+            </span>
+            <span className="flex h-10 w-[102px] items-center justify-center rounded-md bg-white px-2.5 shadow-sm">
+              <img src="https://www.logo.wine/a/logo/BKash/BKash-Logo.wine.svg" alt="bKash" className="h-8 w-full object-contain" />
+            </span>
+            <span className="flex h-10 w-[96px] items-center justify-center rounded-md bg-white px-2.5 shadow-sm">
+              <img src="https://www.logo.wine/a/logo/Nagad/Nagad-Horizontal-Logo.wine.svg" alt="Nagad" className="h-8 w-full object-contain" />
+            </span>
           </div>
         </div>
       </div>
